@@ -59,8 +59,8 @@ class MCCP(nn.Module):
         weight_caps = torch.matmul(self.weight, self.weight.permute(0, 2, 1))
         sigma = torch.inverse(weight_caps + self.eps * self.eye)
         # implemented as a convolutional procedure
-        # matrix = nn.functional.unfold(torch.cat((x, x[:, :self.reciptive]), dim=-1).unsqueeze(1).unsqueeze(1), (1, self.reciptive), stride=self.strides)
-        # matrix = matrix.permute(0, 2, 1)
+        # vec2mat = nn.functional.unfold(torch.cat((x, x[:, :self.reciptive]), dim=-1).unsqueeze(1).unsqueeze(1), (1, self.reciptive), stride=self.strides)
+        # matrix = vec2mat.permute(0, 2, 1)
         # b, n, d = matrix.size()
         # out1 = torch.matmul(matrix, torch.t(self.weight.view(-1, d)))
         # out1 = out1.view(b, n, self.num_C, 1, self.num_D)
