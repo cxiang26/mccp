@@ -10,7 +10,7 @@
 
 import torch
 import torch.nn as nn
-from . import ops
+from . import opt
 
 class BasicBlock(nn.Module):
     """Basic Block for resnet 18 and resnet 34
@@ -103,7 +103,7 @@ class ResNet(nn.Module):
             if block.expansion == 1:
                 reciptive = 384
                 strides = 256
-            self.fc = ops.MCCP(512 * block.expansion, num_classes, Ddim, reciptive, strides)
+            self.fc = opt.MCCP(512 * block.expansion, num_classes, Ddim, reciptive, strides)
         else:
             assert ValueError, "The type is no existing"
 
