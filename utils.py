@@ -11,13 +11,13 @@ from torch.utils.data import DataLoader
 
 def get_network(args, use_gpu=True):
     if args.net == 'resnet18':
-        from models.resnet import resnet18
+        from resnet import resnet18
         net = resnet18(args)
     elif args.net == 'resnet34':
-        from models.resnet import resnet34
+        from resnet import resnet34
         net = resnet34(args)
     elif args.net == 'resnet50':
-        from models.resnet import resnet50
+        from resnet import resnet50
         net = resnet50(args)
     else:
         print('the network name you have entered is not supported yet')
